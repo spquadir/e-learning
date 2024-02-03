@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{~/forms/css/data.css}">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" th:href="@{~/template/css/style.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script th:src="@{~/forms/js/data.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="table-wrapper">
+
+        <table id="outputTable">
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Ingredients</th>
+                <th>Directions</th>
+                <th>Nutrition</th>
+                <th>CookingTime</th>
+                <th>ServingQty</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="data : ${datas}">
+                <tr>
+                    <td><th:block th:text="${data.images}"/></td>
+                    <td><th:block th:text="${data.name}"/></td>
+                    <td><th:block th:text="${data.ingredients}"/></td>
+                    <td><th:block th:text="${data.directions}"/></td>
+                    <td><th:block th:text="${data.nutritionalContent}"/></td>
+                    <td><th:block th:text="${data.cookingTime}"/></td>
+                    <td><th:block th:text="${data.servingQty}"/></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
