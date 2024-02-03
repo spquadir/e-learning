@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FoodController {
 
-    @Autowired
-    private FoodService foodService;
+  //  @Autowired
+  //  private FoodService foodService;
 
-    @GetMapping("/recipe") // localhost:8080/recipe
-    public String getRecipe(){
-        System.out.println("inside controller");
-        return foodService.getRecipeDataFromAPI();
-    }
+//    @GetMapping("/recipe") // localhost:8080/recipe
+//    public String getRecipe(){
+//        System.out.println("inside controller");
+//    //    return foodService.getRecipeDataFromAPI();
+//    }
 
     /*
       1 service: RecipeService
