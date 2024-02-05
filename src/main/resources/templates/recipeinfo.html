@@ -36,14 +36,34 @@
             <tbody>
             <th:block th:each="data : ${datas}">
                 <tr>
-                    <td><th:block th:text="${data.images}"/></td>
+                    <td><th:block>  <img th:src="@{${image}}" alt="Not available"/></th:block></td>
                     <td><th:block th:text="${data.name}"/></td>
-                    <td><th:block th:text="${data.ingredients}"/></td>
-                    <td><th:block
+                    <td><th:block>
 
-                            <th:text="<ul><li th:each="item, stat : ${data.directions}"<span th:text="${stat.count} + '. ' + ${item}"></span></li></ul>"/>
+                        <ul>
+                            <li th:each="entry : ${data.ingredients}">
+                                <span th:text="${entry.key}"></span>: <span th:text="${entry.value}"></span>
+                            </li>
+                        </ul>
+
+                    </th:block>
                     </td>
-                    <td><th:block th:text="${data.nutritionalContent}"/></td>
+                    <td><th:block>
+
+                            <ol><li th:each="item, stat : ${data.directions}"><span th:text=" ${item}"></span></li></ol>
+                    </th:block>
+                    </td>
+
+                    <td><th:block>
+
+                        <ul>
+                            <li th:each="entry : ${data.nutritionalContent}">
+                                <span th:text="${entry.key}"></span>: <span th:text="${entry.value}"></span>
+                            </li>
+                        </ul>
+
+                    </th:block>
+                    </td>
                     <td><th:block th:text="${data.cookingTime}"/></td>
                     <td><th:block th:text="${data.servingQty}"/></td>
                 </tr>

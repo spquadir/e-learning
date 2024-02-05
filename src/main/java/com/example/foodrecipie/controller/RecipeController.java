@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
@@ -41,6 +38,7 @@ public class RecipeController {
         List<Recipe> recipes =(List<Recipe>) recipeRepository.findAll();;
 
         model.addAttribute("datas",recipes);
+
         return "data";
     }
     @GetMapping("/recipe/{id}")
@@ -72,6 +70,7 @@ public class RecipeController {
         List<Recipe> recipes = new ArrayList<>();
         recipes.add(data.get());
         model.addAttribute("datas",recipes);
+        model.addAttribute("image", data.get().getImage().getImageData());
         return "recipeinfo";
 
     }
