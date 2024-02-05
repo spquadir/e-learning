@@ -39,7 +39,10 @@
                     <td><th:block th:text="${data.images}"/></td>
                     <td><th:block th:text="${data.name}"/></td>
                     <td><th:block th:text="${data.ingredients}"/></td>
-                    <td><th:block th:text="${data.directions}"/></td>
+                    <td><th:block
+
+                            <th:text="<ul><li th:each="item, stat : ${data.directions}"<span th:text="${stat.count} + '. ' + ${item}"></span></li></ul>"/>
+                    </td>
                     <td><th:block th:text="${data.nutritionalContent}"/></td>
                     <td><th:block th:text="${data.cookingTime}"/></td>
                     <td><th:block th:text="${data.servingQty}"/></td>
