@@ -1,0 +1,56 @@
+/* Style for the form */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f4f7f6;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: calc(100% - 10px);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"],
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background: #45a049;
+}
+
+/* Style for added input fields */
+.direction-row,
+.ingredient-row,
+.nutritional-content-row {
+    display: flex;
+}
+
+.direction-row input[type="text"],
+.ingredient-row input[type="text"],
+.nutritional-content-row input[type="text"] {
+    width: 50%;
+    margin-bottom: 10px;
+}
+

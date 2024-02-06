@@ -4,40 +4,9 @@
     <meta charset="UTF-8">
     <title>Recipe Form</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#addIngredientBtn').click(function() {
-                var index = $('.ingredient-row').length + 1;
-                $('#ingredientFields').append(
-                    '<div class="ingredient-row">' +
-                    '<input type="text" name="ingredients[' + index + '].key" placeholder="Ingredient" />' +
-                    '<input type="text" name="ingredients[' + index + '].value" placeholder="Quantity" />' +
-                    '</div>'
-                );
-            });
-        });
-        $(document).ready(function() {
-            $('#addNutritionalContentBtn').click(function() {
-                var index = $('.nutritional-content-row').length + 1;
-                $('#nutritionalContentFields').append(
-                    '<div class="nutritional-content-row">' +
-                    '<input type="text" name="nutritionalContent[' + index + '].key" placeholder="Nutrient" />' +
-                    '<input type="text" name="nutritionalContent[' + index + '].value" placeholder="Value" />' +
-                    '</div>'
-                );
-            });
-        });
-        $(document).ready(function() {
-            $('#addDirectionBtn').click(function() {
-                var index = $('.direction-row').length + 1;
-                $('#directionFields').append(
-                    '<div class="direction-row">' +
-                    '<input type="text" name="directions[' + index + ']" placeholder="Direction ' + index + '" />' +
-                    '</div>'
-                );
-            });
-        });
-    </script>
+    <link rel="stylesheet" th:href="@{~/forms/css/admin_home.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script th:src="@{~/forms/js/admin_home.js}"></script>
 </head>
 <body>
 <h2>Create Recipe</h2>
