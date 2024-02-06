@@ -14,10 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.init.ScriptUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -37,6 +34,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
+@RequestMapping("/recipe")
 public class RecipeController {
 
 
@@ -83,7 +81,7 @@ public class RecipeController {
         return "home";
     }
 
-    @GetMapping("/allRecipes")
+    @GetMapping("/all")
     public String fetchAll(Model model){
         List<Recipe> recipes =(List<Recipe>) recipeRepository.findAll();;
 
@@ -91,13 +89,13 @@ public class RecipeController {
 
         return "data";
     }
-    @GetMapping("/recipe/{id}")
+    @GetMapping("/{id}")
     public String fetchDetailsById(@PathVariable String id, RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("recipeId",id);
         return "redirect:/recipe-info" ;
     }
 
-    @GetMapping("/recipes")
+    @GetMapping("/category")
     public String recipeAll(Model model,@RequestParam String categoryName){
 
         List<Recipe> recipes =(List<Recipe>) recipeRepository.findAll();
@@ -111,7 +109,7 @@ public class RecipeController {
         return "data";
     }
 
-    @GetMapping("/recipe-info")
+    @GetMapping("/info")
     public String fetchRecipeInfo(Model model,@ModelAttribute(name="recipeId",binding = true) String id){
         Optional<Recipe> data = recipeRepository.findById(Long.valueOf(id));
         if (data.isEmpty()){

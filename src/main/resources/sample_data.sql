@@ -1,5 +1,3 @@
-ALTER TABLE image MODIFY COLUMN image_data LONGBLOB;
-
 INSERT into category values (1,'breakfast');
 INSERT into category values (2,'lunch');
 INSERT into category values (3,'snacks');
@@ -74,6 +72,8 @@ INSERT INTO recipe_directions values (4,'Take 2 eggs of murgi');
 INSERT INTO recipe_directions values (4,'Boil 2 eggs and fry it with oil in pan');
 INSERT INTO recipe_directions values (4,'Use salt & spices as per taste');
 INSERT INTO recipe_directions values (4,'Fry with spices in pan for 10 min and thoos lo');
+
+ALTER TABLE image MODIFY COLUMN image_data LONGBLOB;
 
 
 
