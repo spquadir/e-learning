@@ -10,6 +10,7 @@ import com.example.foodrecipie.service.DataSetupService;
 import org.apache.jasper.tagplugins.jstl.core.Url;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.init.ScriptUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.imageio.ImageIO;
@@ -36,6 +38,12 @@ import java.util.stream.Collectors;
 
 @Controller
 public class RecipeController {
+
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 
     @Autowired
     private RecipeRepository recipeRepository;
@@ -61,21 +69,11 @@ public class RecipeController {
         // update image with URL
         List<Image> images = (List<Image>) imageRepository.findAll();
         for (Image img: images) {
-            byte[] imageBytes;
             String imageUrl = "https://www.awesomecuisine.com/wp-content/uploads/2020/03/bread-omelette.jpg";
-            try {
 
-                BufferedImage image = ImageIO.read(new URL(imageUrl));
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ImageIO.write(image, "jpg", baos);
-                imageBytes = baos.toByteArray();
-                img.setImageData(imageBytes);
-                imageRepository.save(img);
-            } catch (IOException e) {
-                e.printStackTrace();
-                throw new RuntimeException("exception in converting image bytes");
-            }
-
+            byte[] imageData = new RestTemplate().getForObject(imageUrl, byte[].class);
+            img.setImageData(imageData);
+            imageRepository.save(img);
         }
 
         // load relevant data
@@ -122,7 +120,7 @@ public class RecipeController {
         List<Recipe> recipes = new ArrayList<>();
         recipes.add(data.get());
         model.addAttribute("datas",recipes);
-        model.addAttribute("image", data.get().getImage().getImageData());
+        model.addAttribute("imageData",Base64.getEncoder().encodeToString(data.get().getImage().getImageData()));
         return "recipeinfo";
 
     }
