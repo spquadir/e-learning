@@ -2,12 +2,14 @@ package com.example.foodrecipie.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 
 @Entity
 public class Image {
     @Id
     private int imageID;
-    private String imageData;
+    @Lob
+    private byte[] imageData;
 
     public int getImageID() {
         return imageID;
@@ -17,11 +19,11 @@ public class Image {
         this.imageID = imageID;
     }
 
-    public String getImageData() {
+    public byte[] getImageData() {
         return imageData;
     }
 
-    public void setImageData(String imageData) {
+    public void setImageData(byte[] imageData) {
         this.imageData = imageData;
     }
 }
