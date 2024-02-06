@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 public class Image {
     @Id
     private int imageID;
-    private byte[] imageData;
+    private String imageData;
 
     public int getImageID() {
         return imageID;
@@ -17,11 +17,11 @@ public class Image {
         this.imageID = imageID;
     }
 
-    public byte[] getImageData() {
+    public String getImageData() {
         return imageData;
     }
 
-    public void setImageData(byte[] imageData) {
+    public void setImageData(String imageData) {
         this.imageData = imageData;
     }
 }

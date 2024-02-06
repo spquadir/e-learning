@@ -1,15 +1,14 @@
 package com.example.foodrecipie.models;
 
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.util.List;
 import java.util.Map;
 @Entity
 @Table(name = "recipes")
 public class Recipe {
-    @ElementCollection
-    private List<Image> images;
+    @OneToOne
+    private Image image;
     private String name;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,12 +24,12 @@ public class Recipe {
     @ElementCollection
     private List<String> categories;
 
-    public List<Image> getImages() {
-        return images;
+    public Image getImage() {
+        return image;
     }
 
-    public void setImages(List<Image> images) {
-        this.images = images;
+    public void setImage(Image image) {
+        this.image = image;
     }
 
     public String getName() {

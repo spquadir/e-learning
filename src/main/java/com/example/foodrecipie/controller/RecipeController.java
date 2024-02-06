@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
@@ -25,6 +23,7 @@ public class RecipeController {
     private RecipeRepository recipeRepository;
     @Autowired
     private CategoryRepository categoryRepository;
+
 
     @GetMapping("/home")
     public String home(Model model){
@@ -39,18 +38,13 @@ public class RecipeController {
         List<Recipe> recipes =(List<Recipe>) recipeRepository.findAll();;
 
         model.addAttribute("datas",recipes);
+
         return "data";
     }
     @GetMapping("/recipe/{id}")
-    public String fetchDetailsById(@PathVariable String id, Model model) {
-        Optional<Recipe> data = recipeRepository.findById(Long.valueOf(id));
-        if (data.isEmpty()){
-            return "failure";
-        }
-        List<Recipe> recipes = new ArrayList<>();
-        recipes.add(data.get());
-        model.addAttribute("datas",recipes);
-        return "recipeinfo";
+    public String fetchDetailsById(@PathVariable String id, RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("recipeId",id);
+        return "redirect:/recipe-info" ;
     }
 
     @GetMapping("/recipes")
@@ -65,5 +59,19 @@ public class RecipeController {
         }
         model.addAttribute("datas",finaldata);
         return "data";
+    }
+
+    @GetMapping("/recipe-info")
+    public String fetchRecipeInfo(Model model,@ModelAttribute(name="recipeId",binding = true) String id){
+        Optional<Recipe> data = recipeRepository.findById(Long.valueOf(id));
+        if (data.isEmpty()){
+            return "failure";
+        }
+        List<Recipe> recipes = new ArrayList<>();
+        recipes.add(data.get());
+        model.addAttribute("datas",recipes);
+        model.addAttribute("image", data.get().getImage().getImageData());
+        return "recipeinfo";
+
     }
 }
