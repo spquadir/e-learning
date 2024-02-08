@@ -12,10 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,7 +46,7 @@ public class AdminController {
     }
 
     @PostMapping("/createRecipe")
-    public String createRecipe(@ModelAttribute RecipeDTO recipeDTO){
+    public String createRecipe(Model model,@ModelAttribute RecipeDTO recipeDTO){
 
         // customize
         Image image = new Image();
@@ -81,7 +79,9 @@ public class AdminController {
         recipe.setName(recipeDTO.getName());
         recipe.setCookingTime(recipeDTO.getCookingTime());
         recipe.setIngredients(recipeDTO.getIngredients());
+        recipe.setServingQty(recipeDTO.getServingQty());
         recipeRepository.save(recipe);
+        model.addAttribute("recipe", new RecipeDTO());
         return "admin_home";
     }
 }

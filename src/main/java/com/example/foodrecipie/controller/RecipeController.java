@@ -75,7 +75,7 @@ public class RecipeController {
     @GetMapping("/{id}")
     public String fetchDetailsById(@PathVariable String id, RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("recipeId",id);
-        return "redirect:/recipe-info" ;
+        return "redirect:/recipe_info" ;
     }
 
     @GetMapping("/category")
@@ -102,7 +102,7 @@ public class RecipeController {
         recipes.add(data.get());
         model.addAttribute("datas",recipes);
         model.addAttribute("imageData",Base64.getEncoder().encodeToString(data.get().getImage().getImageData()));
-        return "recipeinfo";
+        return "recipe_info";
 
     }
 }

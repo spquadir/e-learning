@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Image {
     @Lob
-    @Column(columnDefinition = "BLOB")
+    @Column(columnDefinition = "LONGBLOB")
     private byte[] imageData;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

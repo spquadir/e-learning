@@ -37,17 +37,13 @@
             <th:block th:each="data : ${datas}">
                 <tr>
                     <td><th:block><img th:src="@{'data:image/jpg;base64,' + ${imageData}}" alt="Image"/></th:block></td>
-
-
                     <td><th:block th:text="${data.name}"/></td>
                     <td><th:block>
-
                         <ul>
                             <li th:each="entry : ${data.ingredients}">
                                 <span th:text="${entry.key}"></span>: <span th:text="${entry.value}"></span>
                             </li>
                         </ul>
-
                     </th:block>
                     </td>
                     <td><th:block>
