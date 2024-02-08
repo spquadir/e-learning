@@ -1,8 +1,7 @@
 package com.example.foodrecipie.repository;
 
-import com.example.foodrecipie.models.Image;
+import com.example.foodrecipie.models.ImageModel;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 
-public interface ImageRepository extends JpaRepository<Image, Integer> {
+public interface ImageRepository extends JpaRepository<ImageModel, Integer> {
 }

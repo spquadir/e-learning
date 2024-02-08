@@ -1,16 +1,15 @@
 package com.example.foodrecipie.models;
 
 import jakarta.persistence.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
 @Entity
 @Table(name = "recipes")
-public class Recipe {
+public class RecipeModel {
 
     @OneToOne
-    private Image image;
+    private ImageModel imageModel;
     private String name;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,12 +25,12 @@ public class Recipe {
     @ElementCollection
     private List<String> categories;
 
-    public Image getImage() {
-        return image;
+    public ImageModel getImage() {
+        return imageModel;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public void setImage(ImageModel imageModel) {
+        this.imageModel = imageModel;
     }
 
     public String getName() {

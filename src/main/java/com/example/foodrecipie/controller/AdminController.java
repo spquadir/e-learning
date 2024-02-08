@@ -1,9 +1,9 @@
 package com.example.foodrecipie.controller;
 
 import com.example.foodrecipie.dto.RecipeDTO;
-import com.example.foodrecipie.models.Category;
-import com.example.foodrecipie.models.Image;
-import com.example.foodrecipie.models.Recipe;
+import com.example.foodrecipie.models.CategoryModel;
+import com.example.foodrecipie.models.ImageModel;
+import com.example.foodrecipie.models.RecipeModel;
 import com.example.foodrecipie.repository.CategoryRepository;
 import com.example.foodrecipie.repository.ImageRepository;
 import com.example.foodrecipie.repository.RecipeRepository;
@@ -49,11 +49,11 @@ public class AdminController {
     public String createRecipe(Model model,@ModelAttribute RecipeDTO recipeDTO){
 
         // customize
-        Image image = new Image();
-        image.setName(recipeDTO.getImage().getName());
+        ImageModel imageModel = new ImageModel();
+        imageModel.setName(recipeDTO.getImage().getName());
         try {
-            image.setImageData(recipeDTO.getImage().getBytes());
-            imageRepository.save(image);
+            imageModel.setImageData(recipeDTO.getImage().getBytes());
+            imageRepository.save(imageModel);
         } catch (IOException e) {
             System.out.println("Exception occurred in handling image");
             e.printStackTrace();
@@ -65,22 +65,22 @@ public class AdminController {
         for (String name:categoryNames) {
             boolean res = categoryRepository.existsByCategoryName(name);
             if(!res){
-                Category category = new Category();
-                category.setCategoryName(name);
-                categoryRepository.save(category);
+                CategoryModel categoryModel = new CategoryModel();
+                categoryModel.setCategoryName(name);
+                categoryRepository.save(categoryModel);
             }
         }
 
-        Recipe recipe = new Recipe();
-        recipe.setImage(image);
-        recipe.setCategories(categoryNames);
-        recipe.setNutritionalContents(recipeDTO.getNutritionalContents());
-        recipe.setDirections(recipeDTO.getDirections());
-        recipe.setName(recipeDTO.getName());
-        recipe.setCookingTime(recipeDTO.getCookingTime());
-        recipe.setIngredients(recipeDTO.getIngredients());
-        recipe.setServingQty(recipeDTO.getServingQty());
-        recipeRepository.save(recipe);
+        RecipeModel recipeModel = new RecipeModel();
+        recipeModel.setImage(imageModel);
+        recipeModel.setCategories(categoryNames);
+        recipeModel.setNutritionalContents(recipeDTO.getNutritionalContents());
+        recipeModel.setDirections(recipeDTO.getDirections());
+        recipeModel.setName(recipeDTO.getName());
+        recipeModel.setCookingTime(recipeDTO.getCookingTime());
+        recipeModel.setIngredients(recipeDTO.getIngredients());
+        recipeModel.setServingQty(recipeDTO.getServingQty());
+        recipeRepository.save(recipeModel);
         model.addAttribute("recipe", new RecipeDTO());
         return "admin_home";
     }

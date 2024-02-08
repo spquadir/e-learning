@@ -3,7 +3,8 @@ package com.example.foodrecipie.models;
 import jakarta.persistence.*;
 
 @Entity
-public class Image {
+@Table(name = "images")
+public class ImageModel {
     @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte[] imageData;

@@ -3,7 +3,8 @@ package com.example.foodrecipie.models;
 import jakarta.persistence.*;
 
 @Entity
-public class Category {
+@Table(name = "categories")
+public class CategoryModel {
    @Column(name="name" , unique = true)
     private String categoryName;
     @Id

@@ -49,7 +49,7 @@
 </header>
 
 <div class="search-container">
-  <form th:action="@{'/recipe/category'}"  id="register-form" method="get" th:object="${category}">
+  <form th:action="@{'/recipeModel/categoryModel'}"  id="register-form" method="get" th:object="${categoryModel}">
 
   <select  class="search-bar" id="search" th:field="*{categoryName}">
     <option th:each="c:${names}" th:name="${c}" th:value="${c}"  th:text="${c}"></option>
