@@ -12,22 +12,22 @@
 <h2>Create Recipe</h2>
 <form th:action="@{/admin/createRecipe}" th:object="${recipe}" method="post" enctype="multipart/form-data">
     <label for="name">Name:</label>
-    <input type="text" id="name" th:field="*{name}" /><br/>
+    <input type="text" th:required="true" id="name" th:field="*{name}" /><br/>
 
     <label for="image">Upload Image:</label>
-    <input type="file" id="image" name="image" accept="image/*" /><br/>
+    <input type="file" th:required="true" id="image" name="image" accept="image/*" /><br/>
 
     <label for="cookingTime">Cooking Time:</label>
-    <input type="text" id="cookingTime" th:field="*{cookingTime}" /><br/>
+    <input type="text" th:required="true" id="cookingTime" th:field="*{cookingTime}" /><br/>
 
     <label for="servingQty">Serving Quantity:</label>
-    <input type="number" id="servingQty" th:field="*{servingQty}" /><br/>
+    <input type="number" th:required="true" id="servingQty" th:field="*{servingQty}" /><br/>
 
     <h3>Ingredients:</h3>
     <div id="ingredientDiv">
         <div class="ingredient-row">
-            <input type="text" name="ingredients[0].key" placeholder="name 1"/>
-            <input type="text" name="ingredients[0].value" placeholder="qty 1"/>
+            <input type="text" th:required="true" name="ingredients[0].key" placeholder="name 1"/>
+            <input type="text" th:required="true" name="ingredients[0].value" placeholder="qty 1"/>
         </div>
     </div>
     <button type="button" id="addIngredientBtn">Add More</button>
@@ -36,7 +36,7 @@
     <h3>Directions:</h3>
     <div id="directionFields">
         <div class="direction-row">
-            <input type="text" name="directions[0]" placeholder="Direction 1" />
+            <input type="text" th:required="true" name="directions[0]" placeholder="Direction 1" />
         </div>
     </div>
     <button type="button" id="addDirectionBtn">Add More</button>
@@ -45,8 +45,8 @@
     <h3>Nutritional Content:</h3>
     <div id="nutritionalContentFields">
         <div class="nutritional-content-row">
-            <input type="text" name="nutritionalContents[0].key" placeholder="Content 1"/>
-            <input type="text" name="nutritionalContents[0].value" placeholder="Value 1"/>
+            <input type="text" th:required="true" name="nutritionalContents[0].key" placeholder="Content 1"/>
+            <input type="text" th:required="true" name="nutritionalContents[0].value" placeholder="Value 1"/>
         </div>
     </div>
     <button type="button" id="addNutritionalContentBtn">Add More</button>
@@ -55,7 +55,7 @@
     <h3>Categories:</h3>
     <div id="categoryFields">
         <div class="categoryModel-row">
-            <input type="text" name="categories[0]" placeholder="Category 1" />
+            <input type="text" th:required="true" name="categories[0]" placeholder="Category 1" />
         </div>
     </div>
     <button type="button" id="addCategoryBtn">Add More</button>

@@ -144,3 +144,7 @@ form .user-details .input-box{
     flex-direction: column;
   }
 }
+img {
+    /* border: 50px; */
+    width: 100px;
+}
