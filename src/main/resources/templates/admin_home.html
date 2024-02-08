@@ -10,12 +10,12 @@
 </head>
 <body>
 <h2>Create Recipe</h2>
-<form th:action="@{/admin/createRecipe}" th:object="${recipe}" method="post">
+<form th:action="@{/admin/createRecipe}" th:object="${recipe}" method="post" enctype="multipart/form-data">
     <label for="name">Name:</label>
     <input type="text" id="name" th:field="*{name}" /><br/>
 
     <label for="image">Upload Image:</label>
-    <input type="file" id="image" name="imageFile" accept="image/*" /><br/>
+    <input type="file" id="image" name="image" accept="image/*" /><br/>
 
     <label for="cookingTime">Cooking Time:</label>
     <input type="text" id="cookingTime" th:field="*{cookingTime}" /><br/>
@@ -24,13 +24,13 @@
     <input type="number" id="servingQty" th:field="*{servingQty}" /><br/>
 
     <h3>Ingredients:</h3>
-    <div id="ingredientFields">
+    <div id="ingredientDiv">
         <div class="ingredient-row">
-            <input type="text" name="ingredients[0].key" placeholder="Ingredient" />
-            <input type="text" name="ingredients[0].value" placeholder="Quantity" />
+            <input type="text" name="ingredients[0].key" placeholder="name 1"/>
+            <input type="text" name="ingredients[0].value" placeholder="qty 1"/>
         </div>
     </div>
-    <button type="button" id="addIngredientBtn">Add Ingredient</button>
+    <button type="button" id="addIngredientBtn">Add More</button>
 
 
     <h3>Directions:</h3>
@@ -39,27 +39,26 @@
             <input type="text" name="directions[0]" placeholder="Direction 1" />
         </div>
     </div>
-    <button type="button" id="addDirectionBtn">Add Direction</button>
+    <button type="button" id="addDirectionBtn">Add More</button>
 
 
     <h3>Nutritional Content:</h3>
     <div id="nutritionalContentFields">
         <div class="nutritional-content-row">
-            <input type="text" name="nutritionalContent[0].key" placeholder="Nutrient" />
-            <input type="text" name="nutritionalContent[0].value" placeholder="Value" />
+            <input type="text" name="nutritionalContents[0].key" placeholder="Content 1"/>
+            <input type="text" name="nutritionalContents[0].value" placeholder="Value 1"/>
         </div>
     </div>
-    <button type="button" id="addNutritionalContentBtn">Add Nutritional Content</button>
+    <button type="button" id="addNutritionalContentBtn">Add More</button>
 
 
     <h3>Categories:</h3>
-    <select multiple="multiple" name="categories">
-        <option value="Breakfast">Breakfast</option>
-        <option value="Lunch">Lunch</option>
-        <option value="Dinner">Dinner</option>
-        <!-- Add more options as needed -->
-    </select>
-
+    <div id="categoryFields">
+        <div class="category-row">
+            <input type="text" name="categories[0]" placeholder="Category 1" />
+        </div>
+    </div>
+    <button type="button" id="addCategoryBtn">Add More</button>
 
     <input type="submit" value="Submit"/>
 </form>

@@ -1,15 +1,26 @@
 package com.example.foodrecipie.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 
 @Entity
 public class Image {
-    @Id
-    private int imageID;
     @Lob
     private byte[] imageData;
+    @Id
+    private int imageID;
+
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getImageID() {
         return imageID;

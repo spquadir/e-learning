@@ -42,12 +42,19 @@ button:hover {
 
 /* Style for added input fields */
 .direction-row,
-.ingredient-row,
+.category-row,
+.ingredient-row{
+   display:flex;
+},
 .nutritional-content-row {
     display: flex;
 }
 
 .direction-row input[type="text"],
+.category-row input[type="text"]{
+    width: 50%;
+    margin-bottom: 10px;
+},
 .ingredient-row input[type="text"],
 .nutritional-content-row input[type="text"] {
     width: 50%;

@@ -57,23 +57,6 @@ public class RecipeController {
     @GetMapping("/home")
     public String initializeSetup(Model model){
 
-        //
-        try {
-            dataSetupService.executeSqlFile();
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("error in setting up initial-data");
-        }
-        // update image with URL
-        List<Image> images = (List<Image>) imageRepository.findAll();
-        for (Image img: images) {
-            String imageUrl = "https://www.awesomecuisine.com/wp-content/uploads/2020/03/bread-omelette.jpg";
-
-            byte[] imageData = new RestTemplate().getForObject(imageUrl, byte[].class);
-            img.setImageData(imageData);
-            imageRepository.save(img);
-        }
-
         // load relevant data
          List<Category> cats = (List<Category>) categoryRepository.findAll();
          model.addAttribute("names",cats.stream().map(Category::getCategoryName).collect(Collectors.toList()));
@@ -110,7 +93,7 @@ public class RecipeController {
     }
 
     @GetMapping("/info")
-    public String fetchRecipeInfo(Model model,@ModelAttribute(name="recipeId",binding = true) String id){
+    public String fetchRecipeInfo(Model model,@ModelAttribute(name="recipeId",binding = true) String id) throws IOException {
         Optional<Recipe> data = recipeRepository.findById(Long.valueOf(id));
         if (data.isEmpty()){
             return "failure";

@@ -1,38 +1,16 @@
-package com.example.foodrecipie.models;
+package com.example.foodrecipie.dto;
 
-import jakarta.persistence.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
-@Entity
-@Table(name = "recipes")
-public class Recipe {
 
-    @OneToOne
-    private Image image;
+public class RecipeDTO {
+
     private String name;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @ElementCollection
+    private MultipartFile image;
     private Map<String,String> ingredients;
-    @ElementCollection
     private List<String> directions;
-    @ElementCollection
-    private Map<String,String> nutritionalContents;
-    private String cookingTime;
-    private int servingQty;
-    @ElementCollection
-    private List<String> categories;
-
-    public Image getImage() {
-        return image;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
-    }
 
     public String getName() {
         return name;
@@ -42,14 +20,13 @@ public class Recipe {
         this.name = name;
     }
 
-    public long getId() {
-        return id;
+    public MultipartFile getImage() {
+        return image;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setImage(MultipartFile image) {
+        this.image = image;
     }
-
 
     public Map<String, String> getIngredients() {
         return ingredients;
@@ -98,4 +75,11 @@ public class Recipe {
     public void setCategories(List<String> categories) {
         this.categories = categories;
     }
+
+    private Map<String,String> nutritionalContents;
+    private String cookingTime;
+    private int servingQty;
+    private List<String> categories;
+
+
 }
