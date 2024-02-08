@@ -1,4 +1,0 @@
-ALTER TABLE image MODIFY COLUMN image_data LONGBLOB;
-
-
-

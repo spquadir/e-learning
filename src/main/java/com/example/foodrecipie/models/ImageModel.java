@@ -7,10 +7,10 @@ import jakarta.persistence.*;
 public class ImageModel {
     @Lob
     @Column(columnDefinition = "LONGBLOB")
-    private byte[] imageData;
+    private byte[] data;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int imageID;
+    private int id;
 
     private String name;
 
@@ -22,19 +22,19 @@ public class ImageModel {
         this.name = name;
     }
 
-    public int getImageID() {
-        return imageID;
+    public byte[] getData() {
+        return data;
     }
 
-    public void setImageID(int imageID) {
-        this.imageID = imageID;
+    public void setData(byte[] data) {
+        this.data = data;
     }
 
-    public byte[] getImageData() {
-        return imageData;
+    public int getId() {
+        return id;
     }
 
-    public void setImageData(byte[] imageData) {
-        this.imageData = imageData;
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -7,10 +7,33 @@ import java.util.Map;
 
 public class RecipeDTO {
 
+    private long id;
     private String name;
+    private String base64ImgStr;
     private MultipartFile image;
     private Map<String,String> ingredients;
     private List<String> directions;
+
+    private Map<String,String> nutritionalContents;
+    private String cookingTime;
+    private int servingQty;
+    private List<String> categories;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getBase64ImgStr() {
+        return base64ImgStr;
+    }
+
+    public void setBase64ImgStr(String base64ImgStr) {
+        this.base64ImgStr = base64ImgStr;
+    }
 
     public String getName() {
         return name;
@@ -76,10 +99,8 @@ public class RecipeDTO {
         this.categories = categories;
     }
 
-    private Map<String,String> nutritionalContents;
-    private String cookingTime;
-    private int servingQty;
-    private List<String> categories;
+
+
 
 
 }

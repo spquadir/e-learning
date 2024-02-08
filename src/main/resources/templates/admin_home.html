@@ -10,12 +10,12 @@
 </head>
 <body>
 <h2>Create Recipe</h2>
-<form th:action="@{/admin/createRecipe}" th:object="${recipeModel}" method="post" enctype="multipart/form-data">
+<form th:action="@{/admin/createRecipe}" th:object="${recipe}" method="post" enctype="multipart/form-data">
     <label for="name">Name:</label>
     <input type="text" id="name" th:field="*{name}" /><br/>
 
-    <label for="imageModel">Upload Image:</label>
-    <input type="file" id="imageModel" name="imageModel" accept="imageModel/*" /><br/>
+    <label for="image">Upload Image:</label>
+    <input type="file" id="image" name="image" accept="image/*" /><br/>
 
     <label for="cookingTime">Cooking Time:</label>
     <input type="text" id="cookingTime" th:field="*{cookingTime}" /><br/>

@@ -7,7 +7,6 @@ import com.example.foodrecipie.models.RecipeModel;
 import com.example.foodrecipie.repository.CategoryRepository;
 import com.example.foodrecipie.repository.ImageRepository;
 import com.example.foodrecipie.repository.RecipeRepository;
-import com.example.foodrecipie.service.DataSetupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,17 +29,8 @@ public class AdminController {
     @Autowired
     private ImageRepository imageRepository;
 
-    @Autowired
-    private DataSetupService dataSetupService;
-
     @GetMapping("/home")
     public String getAdminHome(Model model){
-       /* try {
-            dataSetupService.executeSqlFile();
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("error in setting up initial-data");
-        }*/
         model.addAttribute("recipe", new RecipeDTO());
         return "admin_home";
     }
@@ -52,7 +42,7 @@ public class AdminController {
         ImageModel imageModel = new ImageModel();
         imageModel.setName(recipeDTO.getImage().getName());
         try {
-            imageModel.setImageData(recipeDTO.getImage().getBytes());
+            imageModel.setData(recipeDTO.getImage().getBytes());
             imageRepository.save(imageModel);
         } catch (IOException e) {
             System.out.println("Exception occurred in handling image");
@@ -71,6 +61,13 @@ public class AdminController {
             }
         }
 
+        final RecipeModel recipeModel = getRecipeModel(recipeDTO, imageModel, categoryNames);
+        recipeRepository.save(recipeModel);
+        model.addAttribute("recipe", new RecipeDTO());
+        return "admin_home";
+    }
+
+    private static RecipeModel getRecipeModel(RecipeDTO recipeDTO, ImageModel imageModel, List<String> categoryNames) {
         RecipeModel recipeModel = new RecipeModel();
         recipeModel.setImage(imageModel);
         recipeModel.setCategories(categoryNames);
@@ -80,8 +77,6 @@ public class AdminController {
         recipeModel.setCookingTime(recipeDTO.getCookingTime());
         recipeModel.setIngredients(recipeDTO.getIngredients());
         recipeModel.setServingQty(recipeDTO.getServingQty());
-        recipeRepository.save(recipeModel);
-        model.addAttribute("recipe", new RecipeDTO());
-        return "admin_home";
+        return recipeModel;
     }
 }

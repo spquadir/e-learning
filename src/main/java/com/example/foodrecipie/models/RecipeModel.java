@@ -9,7 +9,7 @@ import java.util.Map;
 public class RecipeModel {
 
     @OneToOne
-    private ImageModel imageModel;
+    private ImageModel image;
     private String name;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,11 +26,11 @@ public class RecipeModel {
     private List<String> categories;
 
     public ImageModel getImage() {
-        return imageModel;
+        return image;
     }
 
-    public void setImage(ImageModel imageModel) {
-        this.imageModel = imageModel;
+    public void setImage(ImageModel image) {
+        this.image = image;
     }
 
     public String getName() {
