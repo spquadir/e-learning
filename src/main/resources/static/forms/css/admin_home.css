@@ -45,7 +45,7 @@ button:hover {
 .category-row,
 .ingredient-row{
    display:flex;
-},
+}
 .nutritional-content-row {
     display: flex;
 }
@@ -54,7 +54,7 @@ button:hover {
 .category-row input[type="text"]{
     width: 50%;
     margin-bottom: 10px;
-},
+}
 .ingredient-row input[type="text"],
 .nutritional-content-row input[type="text"] {
     width: 50%;
