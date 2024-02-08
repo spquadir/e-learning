@@ -13,7 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Controller
@@ -71,11 +73,15 @@ public class AdminController {
         RecipeModel recipeModel = new RecipeModel();
         recipeModel.setImage(imageModel);
         recipeModel.setCategories(categoryNames);
+        Map<String,String> ingredirntMap = new HashMap<>();
+        for (Map.Entry<String, String> entry:recipeDTO.getIngredients().entrySet()) {
+            ingredirntMap.put(entry.getKey(),entry.getValue());
+        }
+        recipeModel.setIngredients(ingredirntMap);
         recipeModel.setNutritionalContents(recipeDTO.getNutritionalContents());
         recipeModel.setDirections(recipeDTO.getDirections());
         recipeModel.setName(recipeDTO.getName());
         recipeModel.setCookingTime(recipeDTO.getCookingTime());
-        recipeModel.setIngredients(recipeDTO.getIngredients());
         recipeModel.setServingQty(recipeDTO.getServingQty());
         return recipeModel;
     }

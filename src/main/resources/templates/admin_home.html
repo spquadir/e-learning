@@ -26,8 +26,8 @@
     <h3>Ingredients:</h3>
     <div id="ingredientDiv">
         <div class="ingredient-row">
-            <input type="text" th:required="true" name="ingredients[0].key" placeholder="name 1"/>
-            <input type="text" th:required="true" name="ingredients[0].value" placeholder="qty 1"/>
+            <input type="text" th:required="true" th:field="*{ingredients['1']}" name="ingredients[0].key" placeholder="name 1"/>
+            <input type="text" th:required="true" th:field="*{ingredients['1']}" name="ingredients[0].value" placeholder="qty 1"/>
         </div>
     </div>
     <button type="button" id="addIngredientBtn">Add More</button>
@@ -45,8 +45,8 @@
     <h3>Nutritional Content:</h3>
     <div id="nutritionalContentFields">
         <div class="nutritional-content-row">
-            <input type="text" th:required="true" name="nutritionalContents[0].key" placeholder="Content 1"/>
-            <input type="text" th:required="true" name="nutritionalContents[0].value" placeholder="Value 1"/>
+            <input type="text" th:required="true" th:field="*{nutritionalContents['1']}" name="nutritionalContents[0].key" placeholder="Content 1"/>
+            <input type="text" th:required="true" th:field="*{nutritionalContents['1']}" name="nutritionalContents[0].value" placeholder="Value 1"/>
         </div>
     </div>
     <button type="button" id="addNutritionalContentBtn">Add More</button>
