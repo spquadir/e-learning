@@ -91,6 +91,11 @@ public class RecipeController {
             dto.setBase64ImgStr(Base64.getEncoder().encodeToString(recipeModel.getImage().getData()));
             dto.setName(recipeModel.getName());
             dto.setId(recipeModel.getId());
+            dto.setIngredients(recipeModel.getIngredients());
+            dto.setNutritionalContents(recipeModel.getNutritionalContents());
+            dto.setServingQty(recipeModel.getServingQty());
+            dto.setCookingTime(recipeModel.getCookingTime());
+            dto.setDirections(recipeModel.getDirections());
             finalData.add(dto);
         }
         return finalData;

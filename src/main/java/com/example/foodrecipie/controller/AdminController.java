@@ -8,6 +8,7 @@ import com.example.foodrecipie.repository.CategoryRepository;
 import com.example.foodrecipie.repository.ImageRepository;
 import com.example.foodrecipie.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.util.StreamUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -75,7 +76,9 @@ public class AdminController {
         recipeModel.setCategories(categoryNames);
         Map<String,String> ingredirntMap = new HashMap<>();
         for (Map.Entry<String, String> entry:recipeDTO.getIngredients().entrySet()) {
-            ingredirntMap.put(entry.getKey(),entry.getValue());
+            if(!entry.getKey().isEmpty() && !entry.getValue().isEmpty()) {
+                ingredirntMap.put(entry.getKey(), entry.getValue());
+            }
         }
         recipeModel.setIngredients(ingredirntMap);
         recipeModel.setNutritionalContents(recipeDTO.getNutritionalContents());

@@ -19,22 +19,20 @@
 
     $('#addIngredientBtn').click(function() {
         var index = $('.ingredient-row').length + 1;
-        var idx = $('.ingredient-row').length
         $('#ingredientDiv').append(
             '<div class="ingredient-row">' +
-            '<input type="text" th:required="true" th:field="*{ingredients[' + idx +']}" name="ingredients[' + index + '].key" placeholder="name ' + index + '"/>' +
-            '<input type="text" th:required="true" th:field="*{ingredients[' + idx +']}" name="ingredients[' + index + '].value" placeholder="qty ' + index + '"/>' +
+            '<input type="text" th:required="true" th:field="*{ingredients[' + index +']}" name="ingredients[' + index + '].key" placeholder="name ' + index + '"/>' +
+            '<input type="text" th:required="true" th:field="*{ingredients[' + index +']}" name="ingredients[' + index + '].value" placeholder="qty ' + index + '"/>' +
             '</div>'
         );
     });
 
     $('#addNutritionalContentBtn').click(function() {
         var index = $('.nutritional-content-row').length + 1;
-        var idx = $('.nutritional-content-row').length
         $('#nutritionalContentFields').append(
             '<div class="nutritional-content-row">' +
-            '<input type="text" th:required="true" th:field="*{nutritionalContents[' + idx +']}" name="nutritionalContents[' + index + '].key" placeholder="Content ' + index + '"/>' +
-            '<input type="text" th:required="true" th:field="*{nutritionalContents[' + idx +']}" name="nutritionalContents[' + index + '].value" placeholder="Value ' + index + '"/>' +
+            '<input type="text" th:required="true" th:field="*{nutritionalContents[' +index +']}" name="nutritionalContents[' + index + '].key" placeholder="Content ' + index + '"/>' +
+            '<input type="text" th:required="true" th:field="*{nutritionalContents[' + index +']}" name="nutritionalContents[' + index + '].value" placeholder="Value ' + index + '"/>' +
             '</div>'
         );
     });
