@@ -70,22 +70,30 @@ public class AdminController {
         return "admin_home";
     }
 
-    private static RecipeModel getRecipeModel(RecipeDTO recipeDTO, ImageModel imageModel, List<String> categoryNames) {
+    private RecipeModel getRecipeModel(RecipeDTO recipeDTO, ImageModel imageModel, List<String> categoryNames) {
         RecipeModel recipeModel = new RecipeModel();
         recipeModel.setImage(imageModel);
         recipeModel.setCategories(categoryNames);
-        Map<String,String> ingredirntMap = new HashMap<>();
-        for (Map.Entry<String, String> entry:recipeDTO.getIngredients().entrySet()) {
-            if(!entry.getKey().isEmpty() && !entry.getValue().isEmpty()) {
-                ingredirntMap.put(entry.getValue(), entry.getValue());
-            }
-        }
-        recipeModel.setIngredients(ingredirntMap);
-        recipeModel.setNutritionalContents(recipeDTO.getNutritionalContents());
+        recipeModel.setIngredients(getConvertedMap(recipeDTO.getIngredients()));
+        recipeModel.setNutritionalContents(getConvertedMap(recipeDTO.getNutritionalContents()));
         recipeModel.setDirections(recipeDTO.getDirections());
         recipeModel.setName(recipeDTO.getName());
         recipeModel.setCookingTime(recipeDTO.getCookingTime());
         recipeModel.setServingQty(recipeDTO.getServingQty());
         return recipeModel;
+    }
+
+    public Map<String,String> getConvertedMap(Map<String,String> originalMap) {
+        Map<String,String> convertedMap = new HashMap<>();
+        for (Map.Entry<String, String> entry : originalMap.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+
+           if(key.contains("key")) {
+               convertedMap.put(value, originalMap.get("value" + key.substring(key.indexOf("_"))));
+           }
+
+        }
+        return convertedMap;
     }
 }
