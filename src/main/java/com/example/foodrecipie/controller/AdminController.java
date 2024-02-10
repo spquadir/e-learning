@@ -77,7 +77,7 @@ public class AdminController {
         Map<String,String> ingredirntMap = new HashMap<>();
         for (Map.Entry<String, String> entry:recipeDTO.getIngredients().entrySet()) {
             if(!entry.getKey().isEmpty() && !entry.getValue().isEmpty()) {
-                ingredirntMap.put(entry.getKey(), entry.getValue());
+                ingredirntMap.put(entry.getValue(), entry.getValue());
             }
         }
         recipeModel.setIngredients(ingredirntMap);
