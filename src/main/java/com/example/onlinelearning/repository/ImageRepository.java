@@ -1,6 +1,6 @@
-package com.example.foodrecipie.repository;
+package com.example.onlinelearning.repository;
 
-import com.example.foodrecipie.models.ImageModel;
+import com.example.onlinelearning.models.ImageModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ImageRepository extends JpaRepository<ImageModel, Integer> {

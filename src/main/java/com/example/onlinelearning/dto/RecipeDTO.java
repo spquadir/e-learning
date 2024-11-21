@@ -1,4 +1,4 @@
-package com.example.foodrecipie.dto;
+package com.example.onlinelearning.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 

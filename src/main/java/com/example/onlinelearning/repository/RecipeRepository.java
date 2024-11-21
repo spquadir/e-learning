@@ -1,6 +1,6 @@
-package com.example.foodrecipie.repository;
+package com.example.onlinelearning.repository;
 
-import com.example.foodrecipie.models.RecipeModel;
+import com.example.onlinelearning.models.RecipeModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

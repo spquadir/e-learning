@@ -1,4 +1,4 @@
-package com.example.foodrecipie;
+package com.example.onlinelearning;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -7,7 +7,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(FoodRecipeApplication.class);
+		return application.sources(OnlineLearningApplication.class);
 	}
 
 }

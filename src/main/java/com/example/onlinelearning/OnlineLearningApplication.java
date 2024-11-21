@@ -1,13 +1,13 @@
-package com.example.foodrecipie;
+package com.example.onlinelearning;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FoodRecipeApplication {
+public class OnlineLearningApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FoodRecipeApplication.class, args);
+		SpringApplication.run(OnlineLearningApplication.class, args);
 	}
 
 }

@@ -1,6 +1,6 @@
-package com.example.foodrecipie.repository;
+package com.example.onlinelearning.repository;
 
-import com.example.foodrecipie.models.CategoryModel;
+import com.example.onlinelearning.models.CategoryModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CategoryRepository extends JpaRepository<CategoryModel,Integer> {

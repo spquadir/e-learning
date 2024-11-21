@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recipes By Category</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{~/forms/css/contact.css}">
+  <link rel="stylesheet" href="style.css">
+ <!-- <link rel="stylesheet" th:href="@{~/template/css/style.css}"> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script th:src="@{~/forms/js/data.js}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-center">
+    <div class="nav-header">
+
+        <h3 style="color:pink;">TastyTable</h3>        </div>
+    <div class="nav-links">
+      <a th:href="@{'/e-learning/home'}" class="nav-link"> Home </a>
+     <!-- <a th:href="@{'/recipe/tags'}" class="nav-link"> category </a> -->
+
+      <div class="nav-link contact-link">
+        <a th:href="@{'/e-learning/contact'}" class="btn"> contact </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<main class="page">
+  <section class="contact-container">
+    <article class="contact-info">
+      <h3>Want To Get In Touch?</h3>
+      <p>
+        Four dollar toast biodiesel plaid salvia actually pickled banjo
+        bespoke mlkshk intelligentsia edison bulb synth.
+      </p>
+      <p>Cardigan prism bicycle rights put a bird on it deep v.</p>
+      <p>
+        Hashtag swag health goth air plant, raclette listicle fingerstache
+        cold-pressed fanny pack bicycle rights cardigan poke.
+      </p>
+    </article>
+    <article>
+      <form class="form contact-form">
+        <div class="form-row">
+          <label html="name" class="form-label">your name</label>
+          <input type="text" name="name" id="name" class="form-input" />
+        </div>
+        <div class="form-row">
+          <label html="email" class="form-label">your email</label>
+          <input type="text" name="email" id="email" class="form-input" />
+        </div>
+        <div class="form-row">
+          <label html="message" class="form-label">message</label>
+          <textarea name="message" id="message" class="form-textarea"></textarea>
+        </div>
+        <button type="submit" class="btn btn-block">
+          submit
+        </button>
+      </form>
+    </article>
+  </section>
+</main>
+</body>
+</html>
+

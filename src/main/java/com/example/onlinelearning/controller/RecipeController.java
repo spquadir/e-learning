@@ -1,11 +1,11 @@
-package com.example.foodrecipie.controller;
+package com.example.onlinelearning.controller;
 
-import com.example.foodrecipie.dto.RecipeDTO;
-import com.example.foodrecipie.models.CategoryModel;
-import com.example.foodrecipie.models.RecipeModel;
-import com.example.foodrecipie.repository.CategoryRepository;
-import com.example.foodrecipie.repository.ImageRepository;
-import com.example.foodrecipie.repository.RecipeRepository;
+import com.example.onlinelearning.dto.RecipeDTO;
+import com.example.onlinelearning.models.CategoryModel;
+import com.example.onlinelearning.models.RecipeModel;
+import com.example.onlinelearning.repository.CategoryRepository;
+import com.example.onlinelearning.repository.ImageRepository;
+import com.example.onlinelearning.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/recipe")
+@RequestMapping("/e-learning")
 public class RecipeController {
 
     @Autowired
@@ -32,11 +32,17 @@ public class RecipeController {
     public String initializeSetup(Model model){
 
         // load relevant data
-         List<CategoryModel> cats = categoryRepository.findAll();
-         model.addAttribute("names",cats.stream().map(CategoryModel::getCategoryName).collect(Collectors.toList()));
-         model.addAttribute("category",new CategoryModel());
+     //    List<CategoryModel> cats = categoryRepository.findAll();
+     //    model.addAttribute("names",cats.stream().map(CategoryModel::getCategoryName).collect(Collectors.toList()));
+     //    model.addAttribute("category",new CategoryModel());
          return "home";
     }
+
+    @GetMapping("/contact")
+    public String contactPage(Model model){
+        return "contact";
+    }
+
 
     @GetMapping("/all")
     public String fetchAll(Model model){
@@ -100,4 +106,5 @@ public class RecipeController {
         }
         return finalData;
     }
+
 }

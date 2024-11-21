@@ -1,12 +1,12 @@
-package com.example.foodrecipie.controller;
+package com.example.onlinelearning.controller;
 
-import com.example.foodrecipie.dto.RecipeDTO;
-import com.example.foodrecipie.models.CategoryModel;
-import com.example.foodrecipie.models.ImageModel;
-import com.example.foodrecipie.models.RecipeModel;
-import com.example.foodrecipie.repository.CategoryRepository;
-import com.example.foodrecipie.repository.ImageRepository;
-import com.example.foodrecipie.repository.RecipeRepository;
+import com.example.onlinelearning.dto.RecipeDTO;
+import com.example.onlinelearning.models.CategoryModel;
+import com.example.onlinelearning.models.ImageModel;
+import com.example.onlinelearning.models.RecipeModel;
+import com.example.onlinelearning.repository.CategoryRepository;
+import com.example.onlinelearning.repository.ImageRepository;
+import com.example.onlinelearning.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -3,60 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page with Search Bar</title>
-  <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #333;
-            padding: 10px;
-            color: #fff;
-            text-align: center;
-        }
-
-        .search-container {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .search-bar {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            width: 300px;
-        }
-
-        .search-button {
-            padding: 10px;
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-    </style>
+  <title>E-Learning Platform</title>
+  <link rel="stylesheet" th:href="@{~/forms/css/home.css}">
+<!--  <link rel="stylesheet" th:href="@{~/forms/css/contact.css}">
+  <script th:src="@{~/forms/js/data.js}"></script> -->
+  <script th:src="@{~/forms/js/home.js}"></script>
 </head>
 <body>
+<!-- Header Section -->
 <header>
-  <h1>TastyTable</h1>
+  <div class="logo">
+    <h1>E-Learning Hub</h1>
+  </div>
+  <nav>
+    <ul>
+      <li> <a th:href="@{'/e-learning/home'}" class="nav-link"> Home </a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a th:href="@{'/e-learning/contact'}" class="btn"> contact </a></li>
+    </ul>
+  </nav>
 </header>
 
-<div class="search-container">
-  <form th:action="@{'/recipe/category'}"  id="register-form" method="get" th:object="${category}">
+<!-- Main Content Section -->
+<main id="home">
+  <section class="hero">
+    <h2>Welcome to the E-Learning Hub</h2>
+    <p>Your journey to mastering new skills starts here!</p>
+    <a href="#courses" class="cta-button">Browse Courses</a>
+  </section>
 
-  <select  class="search-bar" id="search" th:field="*{categoryName}">
-    <option th:each="c:${names}" th:name="${c}" th:value="${c}"  th:text="${c}"></option>
-  </select>
+  <!-- Courses Section -->
+  <section id="courses">
+    <h2>Popular Courses</h2>
+    <div class="course-list">
+      <div class="course-card" id="webDevCard">
+        <h3>Web Development</h3>
+        <p>Learn HTML, CSS, JavaScript, and more!</p>
+        <button class="info-btn" data-course="webDev">More Info</button>
+        <div class="course-info" id="webDevInfo" style="display:none;">
+          <p>This course covers front-end and back-end web development, including responsive design, JavaScript programming, and server-side technologies.</p>
+        </div>
+      </div>
+      <div class="course-card" id="dataScienceCard">
+        <h3>Data Science</h3>
+        <p>Master Python, R, Machine Learning, and more!</p>
+        <button class="info-btn" data-course="dataScience">More Info</button>
+        <div class="course-info" id="dataScienceInfo" style="display:none;">
+          <p>This course will teach you data analysis, machine learning algorithms, data visualization, and how to work with large datasets.</p>
+        </div>
+      </div>
+      <div class="course-card" id="graphicDesignCard">
+        <h3>Graphic Design</h3>
+        <p>Become a creative expert with Photoshop, Illustrator, and more!</p>
+        <button class="info-btn" data-course="graphicDesign">More Info</button>
+        <div class="course-info" id="graphicDesignInfo" style="display:none;">
+          <p>Learn to design digital graphics, create visual concepts, and master Adobe Photoshop and Illustrator for professional work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <button type="submit" class="search-button" >Search</button>
-  </form>
-</div>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are dedicated to providing high-quality courses to help you grow your skills and advance your career.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email us at: <a href="mailto:info@elearninghub.com">info@elearninghub.com</a></p>
+  </section>
+</main>
+
+<!-- Footer Section -->
+<footer>
+  <p>&copy; 2024 E-Learning Hub. All rights reserved.</p>
+</footer>
 </body>
 </html>

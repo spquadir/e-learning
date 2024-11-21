@@ -1,4 +1,4 @@
-package com.example.foodrecipie.models;
+package com.example.onlinelearning.models;
 
 import jakarta.persistence.*;
 
