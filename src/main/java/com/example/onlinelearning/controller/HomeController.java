@@ -20,10 +20,10 @@ public class HomeController {
 
 
 
-    @GetMapping("/failured")
+    @GetMapping("/failure")
     public String initializefailure(Model model){
 
-        return "failured";
+        return "failure";
     }
 
     @GetMapping("/home")
