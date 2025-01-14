@@ -30,7 +30,8 @@
         <div class="row">
             <div class="section col s12 m6 l4 offset-m3 offset-l4">
                 <form method="post"
-                      th:action="@{/e-learning/home}"
+                      th:object="${loginuser}"
+                      th:action="@{/e-learning/loginsuccess}"
                 >
                     <div th:if="${param.error}">
                         <h5 class="center red-text text-lighten-1">Invalid username or password</h5>
@@ -39,14 +40,14 @@
                     <div class="input-field">
                         <label for="username">UserName</label>
                         <input type="text" class="class-controller"
-                               id="username" name="username" autofocus
+                               id="username" name="username" th:field="*{username}" autofocus
                         >
                     </div>
 
                     <div class="input-field mb-5">
                         <label for="password">Password</label>
                         <input type="password" class="class-controller"
-                               id="password" name="password"
+                               id="password" name="password" th:field="*{password}"
                         >
                     </div>
 
