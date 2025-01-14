@@ -18,13 +18,13 @@ import java.util.List;
 @RequestMapping("/e-learning")
 public class HomeController {
 
-    @GetMapping("/failure")
+
+
+    @GetMapping("/failured")
     public String initializefailure(Model model){
 
-        return "failure";
+        return "failured";
     }
-
-
 
     @GetMapping("/home")
     public String initializeSetup(Model model){
