@@ -94,19 +94,19 @@ public class HomeController {
         return "registered";
     }
 
-    @GetMapping("/course")
-    public String course(Model model){
-        model.addAttribute("course", new CourseModel());
-        return "course-add";
-    }
-
-    @PostMapping("/coursesave")
-    public String  coursesave(@ModelAttribute CourseModel courseModel, Model model){
-
-        courseRepository.save(courseModel);
-        model.addAttribute("user",new CourseModel());
-        return "registered";
-    }
+//    @GetMapping("/course")
+//    public String course(Model model){
+//        model.addAttribute("course", new CourseModel());
+//        return "course-add";
+//    }
+//
+//    @PostMapping("/coursesave")
+//    public String  coursesave(@ModelAttribute CourseModel courseModel, Model model){
+//
+//        courseRepository.save(courseModel);
+//        model.addAttribute("user",new CourseModel());
+//        return "registered";
+//    }
 
 
 

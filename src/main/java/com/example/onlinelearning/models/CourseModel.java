@@ -21,11 +21,13 @@ public class CourseModel {
     @Column(name = "description")
     private String courseDescription;
 
+    @Column(name = "difficulty")
+    private String courseDifficulty;
+
     @Column(name = "detail")
     private String courseDetail;
 
-    @Column(name = "difficulty")
-    private String courseDifficulty;
+
 
     @Column(name = "url")
     private String courseUrl;
@@ -62,13 +64,6 @@ public class CourseModel {
         this.courseDetail = courseDetail;
     }
 
-    public String getCourseDifficulty() {
-        return courseDifficulty;
-    }
-
-    public void setCourseDifficulty(String courseDifficulty) {
-        this.courseDifficulty = courseDifficulty;
-    }
 
     public String getCourseUrl() {
         return courseUrl;
@@ -76,5 +71,13 @@ public class CourseModel {
 
     public void setCourseUrl(String courseUrl) {
         this.courseUrl = courseUrl;
+    }
+
+    public String getCourseDifficulty() {
+        return courseDifficulty;
+    }
+
+    public void setCourseDifficulty(String courseDifficulty) {
+        this.courseDifficulty = courseDifficulty;
     }
 }
