@@ -30,8 +30,8 @@
         <div class="row">
             <div class="section col s12 l6 offset-l3">
                 <form method="post"
-
-                      th:action="@{/register}"
+                    th:object="${user}"
+                      th:action="@{/e-learning/save}"
                 >
                     <div th:if="${param.error}">
                         <h5 class="center red-text text-lighten-1">${param.error}</h5>
@@ -41,42 +41,43 @@
                     <div class="input-field">
                         <label for="name">Name</label>
                         <input type="text" class="class-controller"
-                               id="name"  required autofocus
+                               id="name" th:field="*{name}" required autofocus
+
                         >
                     </div>
 
                     <div class="input-field">
                         <label for="surname">Surname</label>
                         <input type="text" class="class-controller"
-                               id="surname" required
+                               id="surname"th:field="*{surname}" required
                         >
                     </div>
 
                     <div class="input-field">
                         <label for="email">Email</label>
                         <input type="text" class="class-controller"
-                               id="email"  required
+                               id="email" th:field="*{email}" required
                         >
                     </div>
 
                     <div class="file-field input-field">
                         <div class="input-field">
                             <label for="imgUrl">Profile Image URL</label>
-                            <input type="text" class="class-controller" id="imgUrl"  required>
+                            <input type="text" class="class-controller" id="imgUrl" th:field="*{imgUrl}"  required>
                         </div>
                     </div>
 
                     <div class="input-field">
                         <label for="username">UserName</label>
                         <input type="text" class="class-controller"
-                               id="username"  required
+                               id="username" th:field="*{username}"  required
                         >
                     </div>
 
                     <div class="input-field mb-5">
                         <label for="password">Password</label>
                         <input type="password" class="class-controller"
-                               id="password"  required
+                               id="password" th:field="*{password}" required
                         >
                     </div>
 
